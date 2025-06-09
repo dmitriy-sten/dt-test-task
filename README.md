@@ -1,4 +1,10 @@
+## Tech Stack
+Next.js 15, React 19, Tailwind v4, Shadcn, Lucide
+
+
 ## Start
+
+
 
 Create ".env.local" file  with NEXT_PUBLIC_API_URL variable like "https://{domain}"
 and NEXT_PUBLIC_API_KEY variable and insert api key
