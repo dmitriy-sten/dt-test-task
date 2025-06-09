@@ -2,7 +2,7 @@ import { cn } from "@/shared/lib/utils";
 import { RecipeDetail } from "@/shared/types/recipe-detail";
 import React from "react";
 import Image from "next/image";
-import { Card, CardHeader } from "@/shared/components/ui/card";
+import { Card } from "@/shared/components/ui/card";
 import { BackButton } from "@/shared/components/back-button";
 
 interface Props {
@@ -31,10 +31,10 @@ export const RecipeDetailItem: React.FC<Props> = ({ className, item }) => {
           />
         </div>
         <div className="w-full">
-          {item.extendedIngredients.map((ingredinet) => (
+          {item.extendedIngredients.map((ingredinet, id) => (
             <div
               className="flex justify-between  mb-2 border-b border-slate-200"
-              key={ingredinet.id}
+              key={id}
             >
               <div>
                 <p>{ingredinet.name}</p>
