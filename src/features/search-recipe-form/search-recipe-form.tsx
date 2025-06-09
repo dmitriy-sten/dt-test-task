@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shared/components/ui/select";
-import { Link, MoveRight, Search } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import React from "react";
 import { CuisineVariantsType, CuisineVarinats } from "./model/constans";
 import qs from "qs";
@@ -21,13 +21,13 @@ interface Props {
 }
 
 export interface RecipesSearchParams {
-  query: string;
-  cuisine: CuisineVariantsType;
-  maxReadyTime: number;
+  query?: string;
+  cuisine?: CuisineVariantsType;
+  maxReadyTime?: number;
 }
 
 export const SearchRecipeForm: React.FC<Props> = ({ className }) => {
-  const [values, setValues] = React.useState<RecipesSearchParams | null>(null);
+  const [values, setValues] = React.useState<RecipesSearchParams>({});
   const router = useRouter();
 
   const handleChange = (
@@ -47,20 +47,16 @@ export const SearchRecipeForm: React.FC<Props> = ({ className }) => {
 
   return (
     <div className={className}>
-      <div>{JSON.stringify(values)}</div>
-
       <Card className="flex flex-row p-3 gap-3 items-center">
         <Input
-          value={values?.query}
+          value={values.query}
           onChange={(e) => handleChange("query", e.target.value)}
-          className=""
           placeholder="Query"
         />
         <Input
-          value={values?.maxReadyTime}
+          value={values.maxReadyTime}
           type="number"
           onChange={(e) => handleChange("maxReadyTime", e.target.value)}
-          className=""
           placeholder="Max ready time"
         />
         <Select
@@ -78,13 +74,13 @@ export const SearchRecipeForm: React.FC<Props> = ({ className }) => {
             ))}
           </SelectContent>
         </Select>
-          <Button
-            onClick={handleNavigate}
-
-          >
-            Next
-            <MoveRight />
-          </Button>
+        <Button
+          disabled={!Object.values(values).find((item) => item !== "")}
+          onClick={handleNavigate}
+        >
+          Next
+          <MoveRight />
+        </Button>
       </Card>
     </div>
   );
