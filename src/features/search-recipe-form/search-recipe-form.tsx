@@ -47,7 +47,7 @@ export const SearchRecipeForm: React.FC<Props> = ({ className }) => {
 
   return (
     <div className={className}>
-      <Card className="flex flex-row p-3 gap-3 items-center">
+      <Card className="flex  flex-col md:flex-row p-3 gap-3 items-center">
         <Input
           value={values.query}
           onChange={(e) => handleChange("query", e.target.value)}

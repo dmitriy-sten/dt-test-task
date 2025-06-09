@@ -1,6 +1,7 @@
 import { RecipeDetailItem } from "@/features/recipe/recipe-detail";
 import { apiClient } from "@/shared/api/api-client";
 import { API_ROUTES } from "@/shared/api/api-routes";
+import { BackButton } from "@/shared/components/back-button";
 import { RecipeDetail } from "@/shared/types/recipe-detail";
 
 export default async function RecipeIdPage({
@@ -15,8 +16,10 @@ export default async function RecipeIdPage({
   );
 
   return (
-    <div className="flex w-full items-center h-screen justify-center ">
-      <RecipeDetailItem item={recipeDetail} />
-    </div>
+    <>
+      <div className="flex w-full  items-center min-h-screen justify-center ">
+        <RecipeDetailItem item={recipeDetail} />
+      </div>
+    </>
   );
 }

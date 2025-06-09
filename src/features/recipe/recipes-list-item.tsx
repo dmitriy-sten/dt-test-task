@@ -12,16 +12,17 @@ interface Props {
 
 export const RecipesListItem: React.FC<Props> = ({ className, recipe }) => {
   return (
-    <Card className={cn(" p-2", className)}>
-      <Image
-        className="mb-1 rounded-lg"
-        width={300}
-        height={300}
-        src={recipe.image}
-        alt={`image for ${recipe.title}`}
-      />
-      <p>{recipe.title}</p>
-      <Link href={`/recipes/${recipe.id}`}>More...</Link>
-    </Card>
+    <Link className="flex" href={`/recipes/${recipe.id}`}>
+      <Card className={cn("flex-1  p-2", className)}>
+        <Image
+          className="mb-1 rounded-lg"
+          width={300}
+          height={300}
+          src={recipe.image}
+          alt={`image for ${recipe.title}`}
+        />
+        <p className="text-center">{recipe.title}</p>
+      </Card>
+    </Link>
   );
 };

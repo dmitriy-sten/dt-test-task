@@ -23,12 +23,14 @@ export default async function RecipesPage({
     }
   );
 
-
   return (
-    <div className="flex w-full justify-center">
+    <div className="flex  p-4 items-start w-full justify-center">
+     
       <RecipesList
         items={recipes.results}
-        renderItem={(recipe) => <RecipesListItem key={recipe.id} recipe={recipe} />}
+        renderItem={(recipe) => (
+          <RecipesListItem key={recipe.id} recipe={recipe} />
+        )}
       />
     </div>
   );
